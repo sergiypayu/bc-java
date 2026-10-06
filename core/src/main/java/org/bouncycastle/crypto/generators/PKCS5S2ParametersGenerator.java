@@ -38,6 +38,18 @@ public class PKCS5S2ParametersGenerator
         state = new byte[hMac.getMacSize()];
     }
 
+    /**
+     * Construct a generator over a MAC that is used as it is, rather than a digest wrapped in an
+     * HMac. The KMAC of DSTU 7564 is not an HMAC construction: it feeds the padded key to the hash
+     * before the message and the bit-inverted key after it, so wrapping it in an HMac would
+     * compile and produce confident garbage.
+     */
+    public PKCS5S2ParametersGenerator(Mac mac)
+    {
+        hMac = mac;
+        state = new byte[hMac.getMacSize()];
+    }
+
     private void F(
         byte[]  S,
         int     c,

@@ -68,6 +68,17 @@ public interface UAObjectIdentifiers
     /** GOST28147 Wrap 1.2.804.2.1.1.1.1.1.1.5 */
     static final ASN1ObjectIdentifier gost28147wrap = UaOid.branch("1.1.1.5");
 
+    /*
+     * In the cipher arc 1.2.804.2.1.1.1.1.1.3.m.k the digit m is the mode (5 = CBC) and k selects
+     * the key size, so .3.5.2 reads as DSTU 7624, CBC, 256-bit key.
+     */
+    /** DSTU7624 Encryption CBC Mode, 128-bit key 1.2.804.2.1.1.1.1.1.3.5.1 */
+    static final ASN1ObjectIdentifier dstu7624cbc_128 = UaOid.branch("1.1.3.5.1");
+    /** DSTU7624 Encryption CBC Mode, 256-bit key 1.2.804.2.1.1.1.1.1.3.5.2 */
+    static final ASN1ObjectIdentifier dstu7624cbc_256 = UaOid.branch("1.1.3.5.2");
+    /** DSTU7624 Encryption CBC Mode, 512-bit key 1.2.804.2.1.1.1.1.1.3.5.3 */
+    static final ASN1ObjectIdentifier dstu7624cbc_512 = UaOid.branch("1.1.3.5.3");
+
     /** DH Key Agreement w Cofactor 1.2.804.2.1.1.1.1.3.4 */
     static final ASN1ObjectIdentifier dhSinglePassCofactorDHGost34311kdf = UaOid.branch("1.3.4");
 	/** DH Key Agreement w/o Cofactor 1.2.804.2.1.1.1.1.3.5 */
